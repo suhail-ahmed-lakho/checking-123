@@ -29,58 +29,76 @@
      ======================
       -->
 
-    <nav class="navbar navbar-expand-lg dark">
-      <div class="container">
-        <div class="d-flex flex-column">
-          <h2 class="header-icon text-light fw-bold my-0">
-            <i>Furniture Haven</i>
-          </h2>
-          <span class="text-light">interior design</span>
+      <nav class="navbar navbar-expand-lg dark">
+        <div class="container">
+            <div class="d-flex flex-column">
+                <h2 class="header-icon text-light fw-bold my-0">
+                    <i>Furniture Haven</i>
+                </h2>
+                <span class="text-light">interior design</span>
+            </div>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto my-2">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="../homePage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light mx-sm-3" href="../index.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="../about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light mx-sm-3" href="../contact-us.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="../services.html">Our Services</a>
+                    </li>
+                </ul>
+                <div>
+                    <div class="nav-icons d-flex align-items-center gap-4">
+                        <!-- Account Icon -->
+                        <div class="icon-wrapper" id="popoverIcon">
+                            <i class="bi bi-person-circle text-light fs-5"></i>
+                        </div>
+                        
+                        <!-- Cart Icon with Counter -->
+                        <a class="icon-wrapper text-decoration-none position-relative" href="../addToCart.html">
+                            <i class="bi bi-bag text-light fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+                                0
+                                <span class="visually-hidden">items in cart</span>
+                            </span>
+                        </a>
+                        
+                        <!-- Search Icon with Dropdown -->
+                        <div class="search-wrapper">
+                            <div class="search-toggle icon-wrapper">
+                                <i class="bi bi-search text-light fs-5"></i>
+                            </div>
+                            <div class="cool-search-box d-none">
+                                <div class="search-inner">
+                                    <input type="text" placeholder="Search here...">
+                                    <button class="search-submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                                <div class="search-suggestions">
+                                    <div class="suggestion-header">Popular Searches</div>
+                                    <div class="suggestion-item">Modern Sofa</div>
+                                    <div class="suggestion-item">Dining Table</div>
+                                    <div class="suggestion-item">Bedroom Set</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button
-          class="navbar-toggler bg-light"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto my-2">
-            <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="../homePage.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light mx-sm-3" href="../index.html"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="../about-us.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light mx-sm-3" href="../contact-us.html"
-                >Contact Us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">Our Services</a>
-            </li>
-          </ul>
-          <div>
-            <img src="../images-2/account.png" alt="" />
-            <a class="text-decoration-none" href="../addToCart.html">  
-                <img class="mx-3" src="../images-2/cart.png" alt="" />
-            </a>
-            <img src="../images-2/search.png" alt="" />
-          </div>
-        </div>
-      </div>
     </nav>
 
 <!-- 

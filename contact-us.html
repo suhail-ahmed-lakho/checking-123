@@ -126,56 +126,79 @@
 
       
     <section class="container my-5">
-      <div class="row">
+      <div class="row g-4">
+        <!-- Contact Info Column -->
         <div class="col-md-6">
-          <h2>Contact us</h2>
-          <p>
-            We'd love to hear from you! Whether you have a question, feedback,
-            or need assistance, our team is here to help. Please feel free to
-            reach out to us through any of the following channels, and we'll get
-            back to you as soon as possible.
-          </p>
-          <p><strong>Email:</strong> rimshaxwave@gmail.com</p>
-          <p><strong>Phone:</strong> 0324689008</p>
-          <p><strong>Address:</strong> Pakistan</p>
-          <p><strong>Business Hours:</strong> 24 hours</p>
+          <div class="contact-info p-4 bg-light rounded shadow-sm">
+            <h2 class="mb-4 border-bottom pb-3">Get in Touch</h2>
+            <p class="lead mb-4">
+              We'd love to hear from you! Whether you have a question, feedback,
+              or need assistance, our team is here to help.
+            </p>
+            <div class="contact-details">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-envelope-fill fs-4 me-3 text-warning"></i>
+                <div>
+                  <h5 class="mb-1">Email</h5>
+                  <p class="mb-0">rimshaxwave@gmail.com</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-telephone-fill fs-4 me-3 text-warning"></i>
+                <div>
+                  <h5 class="mb-1">Phone</h5>
+                  <p class="mb-0">0324689008</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-geo-alt-fill fs-4 me-3 text-warning"></i>
+                <div>
+                  <h5 class="mb-1">Address</h5>
+                  <p class="mb-0">Pakistan</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-clock-fill fs-4 me-3 text-warning"></i>
+                <div>
+                  <h5 class="mb-1">Business Hours</h5>
+                  <p class="mb-0">24 hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Contact Form Column -->
         <div class="col-md-6">
-          <div class="dark text-light p-4 rounded">
-            <h3>Send Us a Message</h3>
+          <div class="dark text-light p-4 rounded shadow">
+            <h3 class="mb-4 border-bottom pb-3">Send Us a Message</h3>
             <form>
               <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Name"
-                />
+                <label for="name" class="form-label">Full Name</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person"></i></span>
+                  <input type="text" class="form-control" id="name" placeholder="Enter your name" />
+                </div>
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Email"
-                />
+                <label for="email" class="form-label">Email Address</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  rows="4"
-                  placeholder="Message"
-                ></textarea>
+              <div class="mb-4">
+                <label for="message" class="form-label">Your Message</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+                  <textarea class="form-control" id="message" rows="4" placeholder="Type your message here..."></textarea>
+                </div>
               </div>
-            <div class="d-flex ">
-                <button type="submit" class="btn btn-warning ">
-                    Submit Your Message
-                  </button>
-            </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-warning btn-lg">
+                  <i class="bi bi-send me-2"></i>Send Message
+                </button>
+              </div>
             </form>
           </div>
         </div>

@@ -53,11 +53,42 @@
                     </li>
                 </ul>
                 <div>
-                    <img src="../images-2/account.png" alt="" />
-                    <a class="text-decoration-none" href="../addToCart.html">
-                        <img class="mx-3" src="../images-2/cart.png" alt="Cart" />
-                    </a>
-                    <img src="../images-2/search.png" alt="" />
+                    <div class="nav-icons d-flex align-items-center gap-4">
+                        <!-- Account Icon -->
+                        <div class="icon-wrapper" id="popoverIcon">
+                            <i class="bi bi-person-circle text-light fs-5"></i>
+                        </div>
+                        
+                        <!-- Cart Icon with Counter -->
+                        <a class="icon-wrapper text-decoration-none position-relative" href="../addToCart.html">
+                            <i class="bi bi-bag text-light fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+                                0
+                                <span class="visually-hidden">items in cart</span>
+                            </span>
+                        </a>
+                        
+                        <!-- Search Icon with Dropdown -->
+                        <div class="search-wrapper">
+                            <div class="search-toggle icon-wrapper">
+                                <i class="bi bi-search text-light fs-5"></i>
+                            </div>
+                            <div class="cool-search-box d-none">
+                                <div class="search-inner">
+                                    <input type="text" placeholder="Search here...">
+                                    <button class="search-submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                                <div class="search-suggestions">
+                                    <div class="suggestion-header">Popular Searches</div>
+                                    <div class="suggestion-item">Modern Sofa</div>
+                                    <div class="suggestion-item">Dining Table</div>
+                                    <div class="suggestion-item">Bedroom Set</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

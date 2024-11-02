@@ -172,43 +172,156 @@ input {
 
 /* Nav links */
 .navbar-nav .nav-link {
-  transition: color 0.3s ease; /* Smooth transition for color */
-  position: relative; /* For hover effect */
+  position: relative;
+  color: #ffffff;
+  padding: 0.7rem 1.2rem;
+  margin: 0 0.3rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
-/* Hover effects for nav links */
-.navbar-nav .nav-link:hover {
-  color: #ffdd57; /* Color change on hover */
-}
-
-/* Add an underline effect on hover */
+/* Fancy hover effect with multiple elements */
+.navbar-nav .nav-link::before,
 .navbar-nav .nav-link::after {
-  content: "";
-  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 2px;
-  background: #ffdd57; /* Underline color */
-  transition: width 0.3s ease, background-color 0.3s ease; /* Transition effect */
-  position: absolute;
-  left: 0;
-  bottom: -5px; /* Position the underline */
-  width: 0; /* Start with width 0 */
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* On hover, expand the underline */
+.navbar-nav .nav-link::before {
+  background: #e8bf04;
+  transform-origin: right;
+}
+
+.navbar-nav .nav-link::after {
+  background: #ffffff;
+  transform-origin: left;
+  transition-delay: 0.25s;
+}
+
+.navbar-nav .nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .navbar-nav .nav-link:hover::after {
-  width: 100%; /* Full width on hover */
+  transform: scaleX(1);
+  transform-origin: right;
 }
 
-/* Icon styling */
+/* Enhanced hover state */
+.navbar-nav .nav-link:hover {
+  color: #e8bf04;
+  transform: translateY(-2px);
+  text-shadow: 0 0 15px rgba(232, 191, 4, 0.5);
+}
+
+/* Glowing dot indicator */
+.navbar-nav .nav-link span {
+  position: relative;
+}
+
+.navbar-nav .nav-link span::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #e8bf04;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px #e8bf04;
+}
+
+.navbar-nav .nav-link:hover span::before {
+  transform: translateX(-50%) scale(1);
+}
+
+/* Active state with animation */
+.navbar-nav .nav-link.active {
+  color: #e8bf04;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link.active::before {
+  transform: scaleX(1);
+  background: linear-gradient(90deg, #e8bf04, #ffdd57);
+}
+
+/* Enhanced icon animations */
 .navbar .iconify-icon {
-  color: #ffdd57; /* Icon color */
-  transition: color 0.3s ease; /* Smooth transition for icon color */
+  position: relative;
+  color: #e8bf04;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.4rem;
 }
 
-/* Hover effect for icons */
 .navbar .iconify-icon:hover {
-  color: #ffffff; /* Change color on hover */
+  color: #ffffff;
+  transform: scale(1.2) rotate(8deg);
+  filter: drop-shadow(0 0 8px rgba(232, 191, 4, 0.6));
+}
+
+/* Dropdown menu enhancement */
+.navbar .dropdown-menu {
+  background: rgba(36, 63, 82, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 191, 4, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar .dropdown-item {
+  color: #ffffff;
+  transition: all 0.3s ease;
+  padding: 0.7rem 1.5rem;
+}
+
+.navbar .dropdown-item:hover {
+  background: rgba(232, 191, 4, 0.1);
+  color: #e8bf04;
+  transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 0;
+  }
+  
+  .navbar-nav .nav-link::before,
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background: rgba(232, 191, 4, 0.1);
+    border-radius: 4px;
+    transform: translateX(5px);
+  }
+}
+
+/* Optional: Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }
 
 /* AQSA  */
@@ -605,4 +718,357 @@ input {
   .icon-wrapper {
     padding: 6px;
   }
+}
+
+.contact-info {
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.contact-info:hover {
+  transform: translateY(-5px);
+}
+
+.input-group-text {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffc107;
+}
+
+.form-control {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffc107;
+  color: white;
+  box-shadow: none;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.success-animation {
+    animation: fadeInDown 0.5s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.image-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.image-overlay {
+  transition: opacity 0.3s ease;
+}
+
+.image-wrapper:hover .image-overlay {
+  opacity: 0;
+}
+
+/* About Section Styles */
+.section-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #e8bf04;
+  color: #243f52;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #243f52;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 3px;
+  background-color: #e8bf04;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+/* Read More Button */
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: none;
+  border: 2px solid #243f52;
+  color: #243f52;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  background: #243f52;
+  color: white;
+}
+
+.btn-icon {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover .btn-icon {
+  transform: translateY(-2px);
+}
+
+/* Image Card Styles */
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.image-card__content {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-card__img {
+  width: 100%;
+  height: 500px; /* Adjust based on your needs */
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.image-card:hover .image-card__img {
+  transform: scale(1);
+}
+
+.image-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-card:hover .image-card__overlay {
+  opacity: 1;
+}
+
+.image-card__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  color: white;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2; /* Ensure text appears above overlay */
+}
+
+.image-card:hover .image-card__details {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.image-card__caption {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added text shadow for better readability */
+}
+
+.image-card__year {
+  display: block;
+  font-size: 1rem;
+  color: #e8bf04;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .image-card__img {
+    height: 400px;
+  }
+  
+  .image-card__caption {
+    font-size: 1.2rem;
+  }
+  
+  .image-card__year {
+    font-size: 0.9rem;
+  }
+}
+
+/* Achievement List Styles */
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievement-item {
+  position: relative;
+  padding: 15px 0;
+  padding-left: 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.achievement-item:last-child {
+  border-bottom: none;
+}
+
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e8bf04;
+}
+
+.achievement-highlight {
+  color: #243f52;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Hover effect for achievement items */
+.achievement-item:hover {
+  transform: translateX(10px);
+  transition: transform 0.3s ease;
+}
+
+.achievement-item:hover::before {
+  background-color: #243f52;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .achievement-item {
+    font-size: 1rem;
+    padding: 12px 0;
+    padding-left: 20px;
+  }
+  
+  .achievement-item::before {
+    top: 18px;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.collapse.show {
+    display: inline;
+}
+
+.read-more-btn svg {
+    transition: transform 0.3s ease;
+}
+.team-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.team-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-overlay {
+  opacity: 1;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--bs-warning);
+}
+
+.dark {
+  background: #212529;
 }

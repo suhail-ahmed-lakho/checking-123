@@ -87,24 +87,47 @@
 
 
     <div class="container text-center my-5">
-        <h4>Order is Completed</h4>
-        <p>Your order has been successfully processed.</p>
+        <div class="success-animation mb-4">
+            <iconify-icon icon="ep:success-filled" style="color: #28a745; font-size: 64px;"></iconify-icon>
+        </div>
+        <h2 class="fw-bold mb-3">Thank You for Your Order!</h2>
+        <p class="text-muted mb-5">Your order has been successfully processed and will be shipped soon.</p>
     </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <div class="card">
-                    <div class="card-header p-3 text-white dark">
-                        <h5 class="m-0">Order Summary</h5>
+                <div class="card shadow-sm border-0">
+                    <div class="card-header p-4 text-white dark">
+                        <h5 class="m-0 d-flex align-items-center">
+                            <iconify-icon icon="material-symbols:receipt-outline" class="me-2"></iconify-icon>
+                            Order Summary
+                        </h5>
                     </div>
-                    <div class="card-body">
-                        <p><strong>Order Number:</strong> <span id="order-number" class="float-end">#123456</span></p>
-                        <p><strong>Date:</strong> <span id="order-date" class="float-end">5/5/2024</span></p>
-                        <p><strong>Total Items:</strong> <span id="total-items" class="float-end">4 items</span></p>
-                        <p><strong>Price:</strong> <span id="total-price" class="float-end">$180.00</span></p>
+                    <div class="card-body p-4">
+                        <div class="border-bottom pb-3 mb-3">
+                            <p class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Order Number:</span>
+                                <strong id="order-number">#123456</strong>
+                            </p>
+                            <p class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Date:</span>
+                                <strong id="order-date">5/5/2024</strong>
+                            </p>
+                            <p class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Total Items:</span>
+                                <strong id="total-items">4 items</strong>
+                            </p>
+                        </div>
+                        <p class="d-flex justify-content-between align-items-center mb-0">
+                            <span class="h5 mb-0">Total Price:</span>
+                            <span class="h4 mb-0 text-success" id="total-price">$180.00</span>
+                        </p>
                     </div>
-                    <div class="card-footer text-center">
-                        <button class="btn btn-warning">View Order Details</button>
+                    <div class="card-footer bg-light p-4 text-center border-0">
+                        <button class="btn btn-warning px-4 py-2 fw-bold">
+                            <iconify-icon icon="carbon:view" class="me-2"></iconify-icon>
+                            View Order Details
+                        </button>
                     </div>
                 </div>
             </div>
