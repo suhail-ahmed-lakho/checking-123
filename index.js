@@ -277,4 +277,69 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const categoryItems = document.querySelectorAll('.category-item');
+    const productCards = document.querySelectorAll('.product-card'); // Adjust selector based on your product cards class
+
+    categoryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Update active state
+        categoryItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        // Get the selected category (convert to lowercase for comparison)
+        const selectedCategory = item.textContent.toLowerCase().trim();
+
+        // Filter products
+        productCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category')?.toLowerCase();
+          
+          if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+            card.style.display = 'block';
+            // Optional: Add animation
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.opacity = '1';
+            }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+
+  // Add this to your existing JavaScript
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '50px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.querySelectorAll('.category-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 100);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Initialize cards with opacity 0 and translated up
+  document.querySelectorAll('.category-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+  });
+
+  // Observe the featured section
+  const featuredSection = document.querySelector('.featured-section');
+  if (featuredSection) {
+    observer.observe(featuredSection);
+  }
+
   
