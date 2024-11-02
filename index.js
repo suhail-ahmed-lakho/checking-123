@@ -230,3 +230,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
  
   
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchBox = document.querySelector('.cool-search-box');
+    const searchInput = document.querySelector('.search-inner input');
+
+    if (searchToggle && searchBox) {
+      // Toggle search box on icon click
+      searchToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        searchBox.classList.toggle('d-none');
+        if (!searchBox.classList.contains('d-none')) {
+          searchInput.focus();
+        }
+      });
+
+      // Handle clicks on search box
+      searchBox.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+
+      // Handle suggestion clicks
+      document.querySelectorAll('.suggestion-item').forEach(item => {
+        item.addEventListener('click', function() {
+          searchInput.value = this.textContent;
+          // You can add search functionality here
+        });
+      });
+
+      // Close search box when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!searchBox.contains(e.target) && !searchToggle.contains(e.target)) {
+          searchBox.classList.add('d-none');
+        }
+      });
+
+      // Handle search submit
+      const searchSubmit = document.querySelector('.search-submit');
+      if (searchSubmit) {
+        searchSubmit.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Add your search functionality here
+          console.log('Searching for:', searchInput.value);
+        });
+      }
+    }
+  });
+
+  

@@ -398,3 +398,211 @@ input {
   color: #6c757d;
   text-align: center;
 }
+
+.search-container {
+  min-width: 40px;
+}
+
+.search-icon {
+  cursor: pointer;
+}
+
+.search-input-container {
+  top: 100%;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-box {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.bi-search {
+  font-size: 1.2rem;
+}
+
+/* Add these new search styles */
+.search-toggle i {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-toggle i:hover {
+  color: #e8bf04;
+}
+
+.cool-search-box {
+  position: absolute;
+  top: 100%;
+  right: -10px;
+  margin-top: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  padding: 15px;
+  z-index: 1000;
+}
+
+.cool-search-box::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.search-inner {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 8px 15px;
+}
+
+.search-inner input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 5px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.search-submit {
+  background: none;
+  border: none;
+  color: #243f52;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.search-submit:hover {
+  color: #e8bf04;
+}
+
+.search-suggestions {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.suggestion-header {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.suggestion-item {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background: #f5f5f5;
+  color: #243f52;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .cool-search-box {
+    position: fixed;
+    top: 70px; /* Adjust based on your navbar height */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 350px;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  .cool-search-box::before {
+    display: none;
+  }
+}
+
+/* Animation */
+.cool-search-box {
+  transform-origin: top right;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cool-search-box.d-none {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+.cool-search-box:not(.d-none) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Add these new styles for icons */
+.nav-icons {
+  margin-left: auto;
+}
+
+.icon-wrapper {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.icon-wrapper:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.icon-wrapper i {
+  font-size: 1.25rem !important;
+}
+
+/* Optional: Add animation for badge */
+.badge {
+  transition: all 0.3s ease;
+}
+
+.icon-wrapper:hover .badge {
+  transform: scale(1.1);
+}
+
+/* Update existing search styles */
+.search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-icons {
+    gap: 2rem !important;
+    margin: 1rem 0;
+  }
+  
+  .icon-wrapper {
+    padding: 6px;
+  }
+}
