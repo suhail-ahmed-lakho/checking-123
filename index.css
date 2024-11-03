@@ -1711,3 +1711,149 @@ html {
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
+
+/* Update existing navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: #243f52;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Add padding to body to prevent content from hiding behind navbar */
+body {
+    padding-top: 76px; /* Adjust this value based on your navbar height */
+}
+
+/* If you have announcement bar, update body padding */
+body.has-announcement {
+    padding-top: 116px;
+}
+
+/* Update existing nav-link styles */
+.navbar-nav .nav-link {
+    position: relative;
+    color: #ffffff;
+    padding: 0.7rem 1.2rem;
+    margin: 0 0.3rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    body {
+        padding-top: 66px;
+    }
+    
+    body.has-announcement {
+        padding-top: 106px;
+    }
+}
+
+/* Services Dropdown Styling */
+.dropdown-menu {
+  background-color: rgba(33, 37, 41, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  min-width: 220px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-item {
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: #ffc107;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  transform: translateX(5px);
+}
+
+.dropdown-item:active {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+
+.dropdown-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
+}
+
+/* Desktop hover behavior */
+@media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .dropdown-menu {
+    display: block !important;
+  }
+  
+  /* Animate slideIn */
+  .animate.slideIn {
+    animation: slideIn 0.3s ease forwards;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile styling */
+@media (max-width: 768px) {
+  #testimonialCarousel {
+    width: 90% !important;
+    left: 5% !important;
+    height: 75% !important;
+    top: 65% !important;
+  }
+  
+  .card-text {
+    font-size: 1rem !important;
+  }
+  
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+}

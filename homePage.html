@@ -94,17 +94,32 @@
                   >Contact Us</a
                 >
               </li>
-              <li class="nav-item" id="servicesDropdown">
+              <li class="nav-item dropdown" id="servicesDropdown">
                 <a
-                  class="nav-link text-light"
-                  href="./services-1.html"
+                  class="nav-link text-light dropdown-toggle"
+                  href="#"
                   role="button"
+                  data-bs-toggle="dropdown"
+                  data-bs-auto-close="outside"
+                  aria-expanded="false"
                 >
                   Our Services
                 </a>
-                <div class="hover-content mt-1">
-                  <a class="" href="./services/./index.html">Service Page 2</a>
-                </div>
+                <ul class="dropdown-menu animate slideIn" aria-labelledby="servicesDropdown">
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2" href="./services-1.html">
+                      <i class="bi bi-house-gear"></i>
+                      Interior Design
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2" href="./services/index.html">
+                      <i class="bi bi-rulers"></i>
+                      Space Planning
+                    </a>
+                  </li>
+                 
+                </ul>
               </li>
             </ul>
             <div class="nav-icons d-flex align-items-center gap-4">
@@ -543,8 +558,8 @@
       </div>
 
       <!-- Hero Section -->
-      <section class="hero-section dark pt-1">
-        <div class="container d-none d-sm-block">
+      <section class="hero-section dark pt-1 d-none d-sm-block">
+        <div class="container ">
           <div class="row justify-content-between mt-5 align-items-center">
             <!-- Left Content -->
             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -617,7 +632,7 @@
       </section>
 
       <!-- Features Section -->
-      <div class="features-section">
+      <div class="features-section d-none d-md-block">
         <div class="container">
           <div class="row g-4">
             <!-- Fast Shipping -->
@@ -784,11 +799,11 @@
                <div class="category-image-wrapper">
                  <img
                    class="category-image"
-                   src="./images-2/img-1.png"
+                   src="./images-2/img-3.png"
                    alt="Pillow"
                  />
                </div>
-               <h5 class="category-title">Pillow</h5>
+               <h5 class="category-title">Beautiful Lamp</h5>
                <p class="category-count">Discover 110 products</p>
              </div>
            </div>
@@ -836,7 +851,7 @@
       </div>
     </div>
 
-    <ul class="container d-flex justify-content-center align-items-center gap-4 py-3 room-categories">
+    <ul class="container justify-content-center align-items-center gap-4 py-3 room-categories d-none d-md-flex">
       <li class="list-unstyled category-item active">Living room</li>
       <li class="list-unstyled category-item">Bed room</li>
       <li class="list-unstyled category-item">Dining room</li>
@@ -1143,6 +1158,7 @@
     </script>
 
     <script src="./index.js"></script>
+    <script src="billing.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
@@ -1194,41 +1210,65 @@
 
     <!-- Add to cart enhancement -->
     <script>
-    function addToCart(name, price, image) {
-      // Get existing cart or initialize new one
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      
-      // Add item with quantity
-      cart.push({
-        id: Date.now(),
-        name: name,
-        price: price,
-        image: image,
-        quantity: 1
-      });
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-      // Save cart
-      localStorage.setItem('cart', JSON.stringify(cart));
-      
-      // Update cart count
-      updateCartCount();
-      
-      // Show confirmation toast
-      showToast(`${name} added to cart!`);
+    function addToCart(name, price, image) {
+        // Check if item already exists in cart
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            // If item exists, increment quantity
+            existingItem.quantity += 1;
+        } else {
+            // If item doesn't exist, add new item
+            cart.push({
+                name: name,
+                price: price,
+                image: image,
+                quantity: 1
+            });
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update UI
+        updateCartCount();
+        showToast(name);
     }
 
     function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-      document.querySelector('.badge').textContent = count;
+        const count = cart.reduce((total, item) => total + item.quantity, 0);
+        const badge = document.querySelector('.badge');
+        if (badge) {
+            badge.textContent = count;
+        }
     }
 
-    function showToast(message) {
-      // Implementation of toast notification
+    function showToast(name) {
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.innerHTML = `
+            <div class="toast-content">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>${name} added to cart!</span>
+            </div>
+        `;
+        
+        // Add toast to document
+        document.body.appendChild(toast);
+        
+        // Remove toast after animation
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
     }
 
     // Initialize cart count on page load
-    document.addEventListener('DOMContentLoaded', updateCartCount);
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartCount();
+    });
     </script>
 
     <!-- Add loading optimization -->

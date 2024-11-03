@@ -71,17 +71,33 @@
                 >Contact Us</a
               >
             </li>
-            <li class="nav-item" id="servicesDropdown">
+            <li class="nav-item dropdown" id="servicesDropdown">
               <a
-                class="nav-link text-light"
-                href="./services-1.html"
+                class="nav-link text-light dropdown-toggle"
+                href="#"
                 role="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
               >
                 Our Services
               </a>
-              <div class="hover-content mt-1">
-                <a class="" href="./services/./index.html">Service Page 2</a>
-              </div>
+              <ul class="dropdown-menu animate slideIn" aria-labelledby="servicesDropdown">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="./services-1.html">
+                    <i class="bi bi-house-gear"></i>
+                    Interior Design
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="./services/index.html">
+                    <i class="bi bi-rulers"></i>
+                    Space Planning
+                  </a>
+                </li>
+            
+              
+              </ul>
             </li>
           </ul>
           <div class="nav-icons d-flex align-items-center gap-4">

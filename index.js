@@ -342,4 +342,47 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(featuredSection);
   }
 
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.design-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.visibility = 'visible';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    cards.forEach(card => {
+        card.style.visibility = 'hidden';
+        observer.observe(card);
+    });
+});
+
+// Add this to your existing JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+    // Get current page URL path
+    const currentPath = window.location.pathname;
+    
+    // Get all nav links
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    // Remove any existing active classes
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        // Get the href value
+        const href = link.getAttribute('href');
+        
+        // Check if the current path includes the href value
+        // or if it's home page
+        if (currentPath.includes(href) || 
+            (currentPath === '/' && href === 'index.html') ||
+            (currentPath.endsWith('/') && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+});

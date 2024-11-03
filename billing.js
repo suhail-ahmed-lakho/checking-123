@@ -90,7 +90,11 @@ document.getElementById('checkoutBtn').addEventListener('click', function() {
 // Final checkout button event listener
 document.getElementById('checkoutBtnFinal').addEventListener('click', function() {
     if (validateBillingDetails()) {
-        alert("Proceeding to payment...");
-        window.location.href = "./finalpaymnt.html"; 
+        // Store the current cart data before redirecting
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+        console.log('Storing cart data:', cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        window.location.href = "./finalpaymnt.html";
     }
 });

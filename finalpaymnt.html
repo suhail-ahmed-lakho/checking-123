@@ -18,6 +18,24 @@
 
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <link rel="stylesheet" href="./index.css" />
+
+    <style>
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .success-animation iconify-icon {
+            animation: scaleIn 0.5s ease-in-out;
+            display: inline-block;
+        }
+
+        .dark {
+            background-color: #2c3e50;
+        }
+
+       
+    </style>
   </head>
   <body>
     <!-- Header -->
@@ -86,14 +104,14 @@
 
 
 
-    <div class="container text-center my-5">
-        <div class="success-animation mb-4">
-            <iconify-icon icon="ep:success-filled" style="color: #28a745; font-size: 64px;"></iconify-icon>
+    <div class="container" style="min-height: 85vh; padding: 40px 0;">
+        <div class="text-center mb-4">
+            <div class="success-animation mb-3">
+                <iconify-icon icon="ep:success-filled" style="color: #28a745; font-size: 84px;"></iconify-icon>
+            </div>
+            <h2 class="fw-bold mb-2">Thank You for Your Order!</h2>
+            <p class="text-muted mb-4">Your order has been successfully processed and will be shipped soon.</p>
         </div>
-        <h2 class="fw-bold mb-3">Thank You for Your Order!</h2>
-        <p class="text-muted mb-5">Your order has been successfully processed and will be shipped soon.</p>
-    </div>
-    <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <div class="card shadow-sm border-0">
@@ -103,30 +121,38 @@
                             Order Summary
                         </h5>
                     </div>
-                    <div class="card-body p-4">
-                        <div class="border-bottom pb-3 mb-3">
-                            <p class="d-flex justify-content-between mb-2">
+                    <div class=" p-4">
+                        <div class="border-bottom pb-3 mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted">Order Number:</span>
                                 <strong id="order-number">#123456</strong>
-                            </p>
-                            <p class="d-flex justify-content-between mb-2">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted">Date:</span>
                                 <strong id="order-date">5/5/2024</strong>
-                            </p>
-                            <p class="d-flex justify-content-between mb-2">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted">Total Items:</span>
-                                <strong id="total-items">4 items</strong>
-                            </p>
+                                <strong id="total-items">0 items</strong>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted">Subtotal:</span>
+                                <strong id="subtotal">$0.00</strong>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Discount Applied:</span>
+                                <strong id="discount" class="text-success">0%</strong>
+                            </div>
                         </div>
-                        <p class="d-flex justify-content-between align-items-center mb-0">
+                        <div class="d-flex justify-content-between align-items-center">
                             <span class="h5 mb-0">Total Price:</span>
-                            <span class="h4 mb-0 text-success" id="total-price">$180.00</span>
-                        </p>
+                            <span class="h4 mb-0 text-success fw-bold" id="total-price">$0.00</span>
+                        </div>
                     </div>
                     <div class="card-footer bg-light p-4 text-center border-0">
-                        <button class="btn btn-warning px-4 py-2 fw-bold">
+                        <button class="btn btn-warning px-4 py-2 fw-bold" onclick="window.location.href='index.html'">
                             <iconify-icon icon="carbon:view" class="me-2"></iconify-icon>
-                            View Order Details
+                            Continue Shopping
                         </button>
                     </div>
                 </div>
