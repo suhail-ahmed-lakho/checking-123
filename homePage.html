@@ -613,16 +613,18 @@
               <div class="hero-images-container">
                 <div class="hero-image-main">
                   <img
-                    src="./images/h-sec-img.png"
+                    src="/images/h-sec-img.png"
                     alt="Interior design showcase"
                     class="img-fluid rounded-3 shadow-lg"
+                    onerror="this.onerror=null; console.log('Image failed to load:', this.src);"
                   />
                 </div>
                 <div class="hero-image-secondary">
                   <img
-                    src="./images/h-sec-img-2.png"
+                    src="/images/h-sec-img-2.png"
                     alt="Furniture showcase"
                     class="img-fluid rounded-3 shadow-lg"
+                    onerror="this.onerror=null; console.log('Image failed to load:', this.src);"
                   />
                 </div>
               </div>
@@ -1287,6 +1289,25 @@
         document.body.appendChild(script);
       }
     });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+          console.log('Image path:', img.src);
+          console.log('Image complete:', img.complete);
+          console.log('Image naturalWidth:', img.naturalWidth);
+          
+          img.addEventListener('load', function() {
+            console.log('Image loaded successfully:', img.src);
+          });
+          
+          img.addEventListener('error', function() {
+            console.error('Image failed to load:', img.src);
+          });
+        });
+      });
     </script>
   </body>
 </html>

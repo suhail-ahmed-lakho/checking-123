@@ -386,3 +386,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Add this script to check if images are loading
+document.addEventListener('DOMContentLoaded', function() {
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    img.addEventListener('error', function() {
+      console.error('Failed to load image:', img.src);
+    });
+  });
+});
