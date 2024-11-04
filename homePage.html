@@ -559,73 +559,95 @@
 
       <!-- Hero Section -->
       <section class="hero-section dark pt-1 d-none d-sm-block">
-        <div class="container ">
+        <div class="container">
           <div class="row justify-content-between mt-5 align-items-center">
             <!-- Left Content -->
-            <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="col-lg-6">
               <div class="hero-content">
-                <span class="badge bg-warning text-dark fs-6 mb-3">House interior design</span>
+                <div class="hero-badge">
+                  <span class="badge-text">House interior design</span>
+                </div>
                 
                 <h1 class="hero-title">
-                  Welcome To our
-                  <div class="d-flex gap-2 my-2">
-                    <span class="text-warning">House Interior</span>
-                    <span>Design</span>
+                  Transform Your
+                  <div class="title-highlight">
+                    <span class="gradient-text">Living Space</span>
                   </div>
-                  Services
+                  Into Art
                 </h1>
 
                 <p class="hero-description">
-                  Transform your space with stylish furniture, crafted to bring
-                  elegance and comfort to every room. Order online and elevate
-                  your home effortlessly!
+                  Discover elegant furniture and interior design solutions that bring 
+                  your dream home to life. Expert craftsmanship meets modern style.
                 </p>
 
-                <div class="hero-buttons d-flex gap-3 my-4">
-                  <button class="btn btn-warning btn-lg text-white">
-                    Our Services
-                  </button>
-                  <button class="btn btn-outline-light btn-lg">
-                    See work
-                  </button>
+                <div class="hero-buttons">
+                  <a href="#services" class="btn-primary">
+                    Explore Services
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                  <a href="#portfolio" class="btn-outline">
+                    View Portfolio
+                    <i class="bi bi-grid-3x3-gap"></i>
+                  </a>
                 </div>
 
                 <!-- Stats Counter -->
-                <div class="stats-counter d-flex justify-content-between">
-                  <div class="stat-item text-center">
-                    <h4 class="counter fw-bold" data-target="5000">0</h4>
-                    <p>Unique style</p>
-                  </div>
-                  <div class="stat-item text-center">
-                    <h4 class="counter fw-bold" data-target="2500">0</h4>
-                    <p>Happy customer</p>
-                  </div>
-                  <div class="stat-item text-center">
-                    <h4 class="counter fw-bold" data-target="2500">0</h4>
-                    <p>Certified outlets</p>
+                <div class="stats-wrapper">
+                  <div class="stats-container">
+                    <div class="stat-item">
+                      <div class="stat-value-wrapper">
+                        <span class="stat-number">5000</span>
+                        <span class="stat-plus" style="opacity: 0;">+</span>
+                      </div>
+                      <p class="stat-label">Unique Designs</p>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                      <div class="stat-value-wrapper">
+                        <span class="stat-number">2500</span>
+                        <span class="stat-plus" style="opacity: 0;">+</span>
+                      </div>
+                      <p class="stat-label">Happy Clients</p>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                      <div class="stat-value-wrapper">
+                        <span class="stat-number">2500</span>
+                        <span class="stat-plus" style="opacity: 0;">+</span>
+                      </div>
+                      <p class="stat-label">Projects Done</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Right Content -->
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <div class="hero-images-container">
-                <div class="hero-image-main">
+            <div class="col-lg-6">
+              <div class="hero-images">
+                <div class="image-wrapper image-main">
                   <img
-                    src="/images/h-sec-img.png"
-                    alt="Interior design showcase"
-                    class="img-fluid rounded-3 shadow-lg"
-                    onerror="this.onerror=null; console.log('Image failed to load:', this.src);"
+                    src="./images/h-sec-img.png"
+                    alt="Modern interior design showcase"
+                    class="hero-img"
                   />
                 </div>
-                <div class="hero-image-secondary">
+                <div class="image-wrapper image-accent">
                   <img
-                    src="/images/h-sec-img-2.png"
-                    alt="Furniture showcase"
-                    class="img-fluid rounded-3 shadow-lg"
-                    onerror="this.onerror=null; console.log('Image failed to load:', this.src);"
+                    src="./images/h-sec-img-2.png"
+                    alt="Furniture detail"
+                    class="hero-img"
                   />
+                </div>
+                <div class="floating-card">
+                  <div class="card-icon">
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Premium Design</span>
+                    <span class="card-subtitle">Top-rated Service</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1131,32 +1153,56 @@
     
 
     <script>
-      // Function to animate counters
-      function animateCounters() {
-        const counters = document.querySelectorAll(".counter");
-        counters.forEach((counter) => {
-          counter.innerText = "0"; // Start from zero
+      function animateCounter() {
+          const counters = document.querySelectorAll('.stat-number');
+          
+          function startCounting(counter, index) {
+              const target = parseInt(counter.textContent);
+              let current = 0;
+              
+              // Add initial styling
+              counter.style.opacity = '0';
+              counter.style.transform = 'translateY(20px)';
+              
+              // Delay each counter's start based on its index
+              setTimeout(() => {
+                  // Fade in the counter
+                  counter.style.transition = 'opacity 0.5s, transform 0.5s';
+                  counter.style.opacity = '1';
+                  counter.style.transform = 'translateY(0)';
+                  
+                  // Start counting
+                  const interval = setInterval(() => {
+                      if (current < target) {
+                          current += 1;
+                          counter.textContent = current.toLocaleString();
+                      } else {
+                          clearInterval(interval);
+                          // Add the plus sign after counting is done
+                          counter.nextElementSibling.style.opacity = '1';
+                      }
+                  }, 1); // Adjust speed here (lower number = faster counting)
+                  
+              }, index * 1000); // Each counter starts 1 second after the previous one
+          }
 
-          const updateCounter = () => {
-            const target = +counter.getAttribute("data-target"); // Get target value
-            const count = +counter.innerText; // Current count
+          // Start animation when elements are in viewport
+          const observer = new IntersectionObserver((entries) => {
+              if (entries[0].isIntersecting) {
+                  counters.forEach((counter, index) => {
+                      startCounting(counter, index);
+                  });
+                  observer.disconnect();
+              }
+          }, { threshold: 0.5 });
 
-            const increment = target / 100; // Divide target by 100 for smooth animation
-
-            if (count < target) {
-              counter.innerText = Math.ceil(count + increment);
-              setTimeout(updateCounter, 15); // Call update every 15ms
-            } else {
-              counter.innerText = target; // Set final count to target
-            }
-          };
-
-          updateCounter();
-        });
+          observer.observe(counters[0]);
       }
 
-      // Run the animation when the page loads
-      window.addEventListener("load", animateCounters);
+      // Initialize counter animation on page load
+      document.addEventListener('DOMContentLoaded', () => {
+          animateCounter();
+      });
     </script>
 
     <script src="./index.js"></script>
